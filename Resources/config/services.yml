@@ -1,0 +1,30 @@
+parameters:
+    jb_sculpin.search.engine.indextank.class: Jb\Bundle\SearchBundle\Search\IndextankSearchEngine
+    jb_sculpin.search.indexation.listener.class: Jb\Bundle\SearchBundle\EventListener\IndexationListener
+    jb_sculpin.search.indextank.client.class: Indextank_Api
+    jb_sculpin.search.document_builder.indextank.class: Jb\Bundle\SearchBundle\Search\IndextankDocumentBuilder
+
+services:
+    jb_sculpin.search.engine.indextank:
+        class: %jb_sculpin.search.engine.indextank.class%
+        arguments:
+            - @jb_sculpin.search.indextank.client
+            - %jb_sculpin.search.options.index%
+            - %jb_sculpin.search.options.user%
+            - %jb_sculpin.search.options.password%
+
+    jb_sculpin.search.indextank.client:
+        class: %jb_sculpin.search.indextank.client.class%
+        arguments:
+            - %jb_sculpin.search.options.url%
+
+    jb_sculpin.search.document_builder.indextank:
+        class: %jb_sculpin.search.document_builder.indextank.class%
+
+    jb_sculpin.search.indexation.listener:
+        class: %jb_sculpin.search.indexation.listener.class%
+        arguments:
+            - @jb_sculpin.search.engine.indextank
+            - @jb_sculpin.search.document_builder.indextank
+        tags:
+            - { name: kernel.event_subscriber }

@@ -1,0 +1,21 @@
+{
+    "name": "jbouzekri/sculpin-search-bundle",
+    "type": "sculpin-bundle",
+    "description": "Provides search in static site via indextank search engine",
+    "keywords": ["sculpin", "php", "Bundle", "Search", "Indextank"],
+    "homepage": "https://github.com/jbouzekri/SculpinSearchBundle",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/flaptor/indextank-php"
+        }
+    ],
+    "require": {
+        "flaptor/indextank-php": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Jb\\Bundle\\SearchBundle": "" }
+    },
+    "target-dir": "Jb/Bundle/SearchBundle"
+}
