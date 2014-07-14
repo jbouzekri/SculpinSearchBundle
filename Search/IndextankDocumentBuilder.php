@@ -23,7 +23,7 @@ class IndextankDocumentBuilder implements DocumentBuilderInterface
 
         $fields = array(
             'title' => $source->data()->get('title'),
-            'text' => strip_tags($source->content()),
+            'content' => strip_tags($source->content()),
             'tags' => implode(',', $tags),
             'link' => $source->permalink()->relativeUrlPath(),
             'date' => $source->data()->get('calculated_date'),

@@ -26,6 +26,7 @@ class JbSearchExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        $container->setParameter('jb_sculpin.search.engine', $config['engine']);
         $container->setParameter('jb_sculpin.search.options.url', $config['options']['url']);
         $container->setParameter('jb_sculpin.search.options.user', $config['options']['user']);
         $container->setParameter('jb_sculpin.search.options.password', $config['options']['password']);
