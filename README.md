@@ -60,6 +60,48 @@ indexed: true
 
 You can now regenerate your site.
 
+You can now add a form HTML markup to your site :
+
+``` html
+<form id="search-form" action="/search" method="get">
+    <div class="input-group" id="search">
+        <input type="text" class="form-control" id="search-field" name="q" placeholder="Search" autocomplete="off" />
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+</form>
+```
+
+This bundle provides a simple indextank client library in js you can use. Add the Resources/public/js/indextank_client.js to your project.
+You can now use the following code to update your list of posts when performing a search :
+
+``` js
+$('#search-form').indexTank({
+    url: "http://login.api.indexden.com",
+    index: "index_name",
+    display: function(result) {
+        if (result.matches == 0) {
+            $('.entries').html('<li>No result</li>');
+            return;
+        }
+
+        var html = "";
+        for (id in result.results) {
+            var date = new Date(result.results[id].date*1000);
+            html += '\
+                <li> \
+                    <small>' + date.getDate()+'/'+date.getMonth()+'/'+date.getFullYear() + '</small> \
+                    <a href="' + result.results[id].link + '">' + result.results[id].title + '</a> \
+                </li>';
+        }
+        $('.entries').html(html);
+    }
+});
+```
+
 How it works
 ------------
 
