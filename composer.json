@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "flaptor/indextank-php": "dev-master"
+        "flaptor/indextank-php": "@dev"
     },
     "autoload": {
         "psr-0": { "Jb\\Bundle\\SearchBundle": "" }
