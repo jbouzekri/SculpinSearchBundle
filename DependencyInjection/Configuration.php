@@ -23,6 +23,9 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->booleanNode('enabled')
+                    ->defaultTrue()
+                ->end()
                 ->scalarNode('engine')
                     ->validate()
                     ->ifNotInArray(array('indextank'))

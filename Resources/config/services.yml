@@ -26,5 +26,6 @@ services:
         arguments:
             - @jb_sculpin.search.engine.indextank
             - @jb_sculpin.search.document_builder.indextank
+            - %jb_sculpin.search.enabled%
         tags:
             - { name: kernel.event_subscriber }
