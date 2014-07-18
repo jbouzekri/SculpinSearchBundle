@@ -11,12 +11,20 @@ Installation
 Using composer, add the dependancy to your composer.json :
 
 ``` json
-require: {
-    "jbouzekri/sculpin-search-bundle": "1.*"
-}
+"require": {
+    "jbouzekri/sculpin-search-bundle": "1.*",
+    "flaptor/indextank-php": "@dev"
+},
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/flaptor/indextank-php"
+    }
+]
 ```
 
-And run the composer update command
+And run the composer update command (indextank must be declared in your composer.json because the current stable version does not include the composer file
+moreover it is not yet on packagist so the repositories part is required)
 
 Enable the bundle. If you have already have an app/SculpinKernel.php, add this bundle to it otherwise create the file with the following content :
 
