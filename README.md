@@ -5,6 +5,8 @@ This bundle provides a search engine using indextank service for your static sit
 
 You can use the service [Indexden](http://indexden.com/).
 
+You can see a working demo on the right column of my [personal french blog](http://blog.bouzekri.net).
+
 Installation
 ------------
 
